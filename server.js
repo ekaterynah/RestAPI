@@ -6,17 +6,17 @@ const {getAllProducts, getProduct} = require("./controllers/productController");
 
 const server = http.createServer((req, res)=>{
     if(req.url === '/api/products' && req.method === 'GET'){
-        getAllProducts(req, res);
+        return getAllProducts(req, res);
     }
     const regularExpression = /\/api\/products\/([0-4]+)/;
     const match = req.url.match(regularExpression);
 
     if(match  && req.method === 'GET'){
         const id = req.url.split('/')[3];
-        getProduct(req, res, id);
+        return getProduct(req, res, id);
     }
     else{
-        handleNotFound (res);
+        return handleNotFound (res);
     }
 })
 
