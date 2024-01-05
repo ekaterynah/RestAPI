@@ -1,6 +1,7 @@
 'use strict'
 
 const Product = require('../models/productModel');
+const { getPostData } = require('../getPostData')
 
 async function getAllProducts(req, res){
     try{
@@ -36,7 +37,26 @@ function sendJSONResponse(res, statusCode, data) {
     res.end();
 }
 
+async function createProduct(req, res){
+    try{
+        const body = await getPostData(req);
+        const { type, title, desc, color, price } = JSON.parse(body);
+        const product = { type, title, desc, color, price };
+
+        const newProduct = await Product.createNewProduct(product);
+        res.statusCode = 201;
+        res.setHeader('Content-Type', 'application/json');
+
+        return res.end(JSON.stringify(newProduct));
+
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
 module.exports = {
     getAllProducts,
-    getProduct
+    getProduct,
+    createProduct
 }
