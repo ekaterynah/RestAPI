@@ -1,0 +1,23 @@
+{
+  "name": "rest-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ekaterynah/RestAPI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ekaterynah/RestAPI/issues"
+  },
+  "homepage": "https://github.com/ekaterynah/RestAPI#readme",
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
