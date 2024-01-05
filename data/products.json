@@ -1,0 +1,34 @@
+[
+  {
+    "id": "1",
+    "type": "furniture",
+    "title": "Sofa",
+    "desc": "Calaeb slipcovered boucle sofa",
+    "color": "white",
+    "price": "$599.99"
+  },
+  {
+    "id": "2",
+    "type": "furniture",
+    "title": "Chair",
+    "desc": "Daulton Upholstered side chair",
+    "color": "blue",
+    "price": "$96.99"
+  },
+  {
+    "id": "3",
+    "type": "furniture",
+    "title": "Wall hooks",
+    "desc": "Richmond solid wood wall",
+    "color": "grey",
+    "price": "$22.99"
+  },
+  {
+    "id": "4",
+    "type": "furniture",
+    "title": "bed",
+    "desc": "Industrial modern solid wood platform bed",
+    "color": "brown",
+    "price": "$279.99"
+  }
+]
