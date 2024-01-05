@@ -2,7 +2,7 @@
 
 const url = require('url');
 const http = require('http');
-const {getAllProducts, getProduct} = require("./controllers/productController");
+const {getAllProducts, getProduct, createProduct} = require("./controllers/productController");
 
 const server = http.createServer((req, res)=>{
     if(req.method === 'GET') {
@@ -15,6 +15,11 @@ const server = http.createServer((req, res)=>{
         if (match) {
             const id = req.url.split('/')[3];
             return getProduct(req, res, id);
+        }
+    }
+    else if(req.method === 'POST'){
+        if (req.url === '/api/products'){
+            return createProduct(req, res);
         }
     }
 
