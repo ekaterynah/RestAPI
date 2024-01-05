@@ -5,19 +5,20 @@ const http = require('http');
 const {getAllProducts, getProduct} = require("./controllers/productController");
 
 const server = http.createServer((req, res)=>{
-    if(req.url === '/api/products' && req.method === 'GET'){
-        return getAllProducts(req, res);
-    }
-    const regularExpression = /\/api\/products\/([0-4]+)/;
-    const match = req.url.match(regularExpression);
+    if(req.method === 'GET') {
+        if (req.url === '/api/products') {
+            return getAllProducts(req, res);
+        }
+        const regularExpression = /\/api\/products\/([0-4]+)/;
+        const match = req.url.match(regularExpression);
 
-    if(match  && req.method === 'GET'){
-        const id = req.url.split('/')[3];
-        return getProduct(req, res, id);
+        if (match) {
+            const id = req.url.split('/')[3];
+            return getProduct(req, res, id);
+        }
     }
-    else{
-        return handleNotFound (res);
-    }
+
+    return handleNotFound(res);
 })
 
 const handleNotFound = (res) => {
